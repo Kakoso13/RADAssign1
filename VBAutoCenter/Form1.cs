@@ -16,5 +16,20 @@ namespace VBAutoCenter
         {
             InitializeComponent();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VBAutoCenterForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
