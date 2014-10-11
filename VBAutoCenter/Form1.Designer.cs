@@ -85,7 +85,7 @@
             this.calculateButton.Location = new System.Drawing.Point(510, 798);
             this.calculateButton.Name = "calculateButton";
             this.calculateButton.Size = new System.Drawing.Size(165, 52);
-            this.calculateButton.TabIndex = 2;
+            this.calculateButton.TabIndex = 5;
             this.calculateButton.Text = "&Calculate";
             this.calculateButton.UseVisualStyleBackColor = true;
             this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
@@ -95,7 +95,7 @@
             this.clearButton.Location = new System.Drawing.Point(747, 798);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(165, 52);
-            this.clearButton.TabIndex = 3;
+            this.clearButton.TabIndex = 6;
             this.clearButton.Text = "C&lear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
@@ -105,7 +105,7 @@
             this.exitButton.Location = new System.Drawing.Point(973, 798);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(165, 52);
-            this.exitButton.TabIndex = 4;
+            this.exitButton.TabIndex = 7;
             this.exitButton.Text = "E&xit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.button3_Click);
@@ -118,7 +118,7 @@
             this.groupBox1.Location = new System.Drawing.Point(53, 121);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(415, 337);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Accessories";
             // 
@@ -160,7 +160,7 @@
             this.groupBox2.Location = new System.Drawing.Point(53, 508);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(415, 309);
-            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Exterior Finish";
             // 
@@ -203,7 +203,7 @@
             this.carSalesPriceTextBox.Location = new System.Drawing.Point(815, 144);
             this.carSalesPriceTextBox.Name = "carSalesPriceTextBox";
             this.carSalesPriceTextBox.Size = new System.Drawing.Size(323, 31);
-            this.carSalesPriceTextBox.TabIndex = 7;
+            this.carSalesPriceTextBox.TabIndex = 0;
             // 
             // amountDueTextBox
             // 
@@ -213,6 +213,7 @@
             this.amountDueTextBox.ReadOnly = true;
             this.amountDueTextBox.Size = new System.Drawing.Size(323, 31);
             this.amountDueTextBox.TabIndex = 8;
+            this.amountDueTextBox.TabStop = false;
             // 
             // tradeinTextBox
             // 
@@ -220,7 +221,7 @@
             this.tradeinTextBox.Location = new System.Drawing.Point(815, 594);
             this.tradeinTextBox.Name = "tradeinTextBox";
             this.tradeinTextBox.Size = new System.Drawing.Size(323, 31);
-            this.tradeinTextBox.TabIndex = 9;
+            this.tradeinTextBox.TabIndex = 1;
             // 
             // totalTextBox
             // 
@@ -230,6 +231,7 @@
             this.totalTextBox.ReadOnly = true;
             this.totalTextBox.Size = new System.Drawing.Size(323, 31);
             this.totalTextBox.TabIndex = 11;
+            this.totalTextBox.TabStop = false;
             // 
             // salesTaxTextBox
             // 
@@ -239,6 +241,7 @@
             this.salesTaxTextBox.ReadOnly = true;
             this.salesTaxTextBox.Size = new System.Drawing.Size(323, 31);
             this.salesTaxTextBox.TabIndex = 12;
+            this.salesTaxTextBox.TabStop = false;
             // 
             // subtotalTextBox
             // 
@@ -248,6 +251,7 @@
             this.subtotalTextBox.ReadOnly = true;
             this.subtotalTextBox.Size = new System.Drawing.Size(323, 31);
             this.subtotalTextBox.TabIndex = 13;
+            this.subtotalTextBox.TabStop = false;
             // 
             // accessoriesTextBox
             // 
@@ -257,6 +261,7 @@
             this.accessoriesTextBox.ReadOnly = true;
             this.accessoriesTextBox.Size = new System.Drawing.Size(323, 31);
             this.accessoriesTextBox.TabIndex = 14;
+            this.accessoriesTextBox.TabStop = false;
             // 
             // label3
             // 
@@ -324,9 +329,11 @@
             // 
             // VBAutoCenterForm
             // 
+            this.AcceptButton = this.calculateButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.CancelButton = this.exitButton;
             this.ClientSize = new System.Drawing.Size(1162, 967);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);

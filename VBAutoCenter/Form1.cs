@@ -27,7 +27,7 @@ namespace VBAutoCenter
         const decimal COMPUTER_NAVIGATION = 1741.23m;
         const decimal PEARLIZED = 345.72m;
         const decimal CUSTOMIZED_DETAILING = 599.99m;
-        const decimal TAX_RATE = 0.15m;
+       
 
        
         public VBAutoCenterForm()
@@ -49,6 +49,11 @@ namespace VBAutoCenter
         private void VBAutoCenterForm_Load(object sender, EventArgs e)
         {
             //this is just the form
+
+            //loading form with requested standard values
+            standardRadioButton.Checked = true;
+            accessoriesTextBox.Text = "$0.00";
+            tradeinTextBox.Text = "0.00";
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -65,6 +70,11 @@ namespace VBAutoCenter
             //bring the cursor to the Car Sales Price text box
             carSalesPriceTextBox.Focus();
 
+            //loading form with requested standard values
+            standardRadioButton.Checked = true;
+            accessoriesTextBox.Text = "$0.00";
+            tradeinTextBox.Text = "0.00";
+
         }
 
         private void calculateButton_Click(object sender, EventArgs e)
@@ -74,17 +84,18 @@ namespace VBAutoCenter
              * subtotal * tax = totalCarPrice 
              * totalCarPrice - tradeIn = amountDue
              * 
-             * this will calculate the total price of the car with tax and tradin values
+             * this will calculate the total price of the car with tax and trad-in values
              */
 
             //declarin local variables
-            decimal carSalesPrice, subTotal,
-                totalCarPrice, tradeIn, amountDue, salesTax;
+            decimal carSalesPriceDecimal, subTotalDecimal,
+                totalCarPriceDecimal, tradeInDecimal, amountDueDecimal, salesTaxDecimal;
 
             //I had to assign to default value so the compiler can compile the program
             // Im not sure why it was giving me error.
-            decimal accessories = 0.0m;
+            decimal accessoriesDecimal = 0.0m;
 
+            decimal accessoriesTotalDecimal = 0.0m;
             //declare local constant
             const decimal TAX_RATE = 0.15m;
 
@@ -101,8 +112,8 @@ namespace VBAutoCenter
                 //validate car price input
                 try
                 {
-                    carSalesPrice = decimal.Parse(carSalesPriceTextBox.Text);
-                    if (carSalesPrice <= 0)
+                    carSalesPriceDecimal = decimal.Parse(carSalesPriceTextBox.Text);
+                    if (carSalesPriceDecimal <= 0)
                     {
                        MessageBox.Show("The Price must be positive value", "Data Entry Error",
                        MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -114,8 +125,8 @@ namespace VBAutoCenter
                         //validate trade-in value input
                         try
                         {
-                            tradeIn = decimal.Parse(tradeinTextBox.Text);
-                            if (tradeIn < 0)
+                            tradeInDecimal = decimal.Parse(tradeinTextBox.Text);
+                            if (tradeInDecimal < 0)
                             {
                                 MessageBox.Show("The Trade-in Value must be positive", "Data entry Error",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -124,18 +135,47 @@ namespace VBAutoCenter
                             }
                             else
                             {
+                                //calculation the check buttons
+                                if (computerNavigationCheckBox.Checked == true)
+                                {
+                                    accessoriesDecimal += COMPUTER_NAVIGATION;
+                                }
+                                if ( leatherInteriorCheckBox.Checked == true)
+                                {
+                                    accessoriesDecimal += LEATHER_INTERIOR;
+                                }
+                                if (stereoSystemcheckBox.Checked == true)
+                                {
+                                    accessoriesDecimal += STEREO_SYSTEM;
+                                }
+
+                               
+                                //calculating the radio butons
+                                if (pearlizedRadioButton.Checked == true)
+                                {
+                                    accessoriesDecimal += PEARLIZED;
+                                }
+                                if (customizedRadioButton.Checked == true)
+                                {
+                                    accessoriesDecimal += CUSTOMIZED_DETAILING;
+                                }
+                                accessoriesTotalDecimal = accessoriesDecimal;
+
+                                accessoriesTextBox.Text = accessoriesTotalDecimal.ToString();
+
+
                                 //after checkin all 2 inputs do the calculation
-                                subTotal = carSalesPrice + accessories;
-                                salesTax = subTotal * TAX_RATE;
-                                totalCarPrice = subTotal + salesTax;
-                                amountDue = totalCarPrice - tradeIn;
+                                subTotalDecimal = carSalesPriceDecimal + accessoriesDecimal;
+                                salesTaxDecimal = subTotalDecimal * TAX_RATE;
+                                totalCarPriceDecimal = subTotalDecimal + salesTaxDecimal;
+                                amountDueDecimal = totalCarPriceDecimal - tradeInDecimal;
 
                                 //display the values
                                 //accessories - im not sure how to solve this one
-                                subtotalTextBox.Text = subTotal.ToString("C");
-                                salesTaxTextBox.Text = salesTax.ToString("C");
-                                totalTextBox.Text = totalCarPrice.ToString("C");
-                                amountDueTextBox.Text = amountDue.ToString("C");
+                                subtotalTextBox.Text = subTotalDecimal.ToString("C");
+                                salesTaxTextBox.Text = salesTaxDecimal.ToString("C");
+                                totalTextBox.Text = totalCarPriceDecimal.ToString("C");
+                                amountDueTextBox.Text = amountDueDecimal.ToString("C");
                             }
                         }
 
